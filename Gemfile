@@ -12,7 +12,7 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 gem 'devise', '~> 4.7', '>= 4.7.3'
-
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem 'pundit', '~> 2.1'
 #gem 'email_validator', '~> 2.2', '>= 2.2.2'
 # Use SCSS for stylesheets
