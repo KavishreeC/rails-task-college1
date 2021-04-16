@@ -1,0 +1,53 @@
+
+<nav class="navbar navbar-expand-sm sticky-top bg-dark navbar-dark mb-3 d-flex justify-content-between">
+<!-- Brand/logo -->
+<a class="navbar-brand" href="#">COLLEGE</a>
+
+<!-- Links -->
+<ul class="navbar-nav">
+
+<% if user_signed_in? %>
+
+    <% if current_user.role == 'admin' %>
+        <li class="nav-item ">
+            <%= link_to 'Home', home_index_path , class:'nav-link' %>
+        </li>
+            <%= link_to 'admin Page', users_path , class:'nav-link' %>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'log out',  destroy_user_session_path,method: :delete , class:'nav-link' %>
+        </li>
+       
+    <% elsif current_user.role == 'teacher' %>
+        <li class="nav-item ">
+            <%= link_to 'Home', home_index_path , class:'nav-link' %>
+        </li>
+            <%= link_to 'teacher page', students_path , class:'nav-link' %>
+        </li>
+    
+        <li class="nav-item">
+            <%= link_to 'log out',  destroy_user_session_path,method: :delete , class:'nav-link' %>
+        </li>
+    <% elsif current_user.role == 'student' %>
+        <li class="nav-item ">
+            <%= link_to 'Home', home_index_path , class:'nav-link' %>
+        </li>
+        <li class="nav-item">
+            <%= link_to 'log out',  destroy_user_session_path,method: :delete , class:'nav-link' %>
+        </li>
+    <% end %>
+<% else %>
+
+    <li class="nav-item">
+        <%= link_to 'log in',  new_user_session_path , class:'nav-link' %>
+    </li>
+    <li class="nav-item">
+        <%= link_to 'sign up',  new_user_registration_path , class:'nav-link' %>
+    </li>
+
+
+<% end %>
+  
+
+</ul>
+</nav>

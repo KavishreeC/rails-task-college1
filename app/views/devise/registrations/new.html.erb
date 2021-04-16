@@ -1,0 +1,65 @@
+
+<div class="d-flex justify-content-center">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="card">
+  <div class="card-header">
+    <h2 class="d-flex justify-content-center">Sign up</h2>
+  </div>
+  <div class="card-body">
+    <div class="field form-group">
+      <%= f.label :firstname %>
+      <%= f.text_field :first_name , class:"form-control w-100" %>
+      <% @user.errors.full_messages_for(:first_name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :lastname %>
+    <%= f.text_field :last_name , class:"form-control w-100" %>
+    <% @user.errors.full_messages_for(:last_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, autocomplete: "email" , class:"form-control w-100" %>
+    <% @user.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :phone %>
+    <%= f.text_field :phone , class:"form-control w-100" %>
+    <% @user.errors.full_messages_for(:phone).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "new-password",class:"form-control w-100" %>
+    <% @user.errors.full_messages_for(:password).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class:" w-100 form-control" %>
+    <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    </div>
+    <br/>
+    </div>
+  <div class="actions d-flex justify-content-between card-footer ">
+    <%= f.submit "Sign up" , class:"btn btn-primary" %>
+    <%= render "devise/shared/links" %>
+  </div>
+<% end %>
+</div>
+
+
