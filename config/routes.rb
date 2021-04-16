@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :students
   devise_for :users
   resources :users
-  root :to => 'home#index'
+  root 'home#index'
   get 'home/index'
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
